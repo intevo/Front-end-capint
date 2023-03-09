@@ -1,0 +1,780 @@
+<html>
+
+<head>
+  <title>Capital Intelectual</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    /* RESET RULES & HELPER CLASSES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+    :root {
+      --lightblue: #f6f9fc;
+      --red: #23566B;
+    }
+
+    a,
+    a:hover {
+      color: inherit;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    .bg-lightblue {
+      background: var(--lightblue);
+    }
+
+    .bg-red {
+      background: var(--red);
+    }
+
+    .text-red {
+      color: var(--red);
+    }
+
+    .container-fluid-max {
+      max-width: 1440px;
+    }
+
+    .cover {
+      background: no-repeat center/cover;
+    }
+
+    .p-15 {
+      padding: 15px;
+    }
+
+    /* SCROLL ANIMATIONS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+    .scroll .page-header {
+      background: var(--red);
+      /* border-radius: 0 0 40% 40%; */
+      height: 90px;
+      font-size: 120%;
+
+    }
+
+    .scroll .hero {
+      transform: scale(0.98);
+    }
+
+
+    /* HEADER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+    .page-header {
+      transition: background 0.5s ease-in-out;
+    }
+
+    .page-header .navbar {
+      padding: 1rem 0;
+    }
+
+    .page-header .navbar-toggler {
+      /* the variable is inherited from BS4 built-in variables */
+      border-color: var(--white);
+    }
+
+    .row p {
+      color: white;
+    }
+
+    .altura {
+      height: 60vh;
+    }
+
+    .fa-stack-1x {
+      cursor: pointer;
+    }
+
+    .fa-stack-1x:hover {
+      transform: scale(1.1);
+      transition: .3s ease;
+    }
+
+    /* BANNER SECTION
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+    .hero {
+      background-attachment: fixed;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.5) 0,
+          rgba(0, 0, 0, 0.3) 50%,
+          rgba(0, 0, 0, 0.1) 100%);
+    }
+
+    .hero .container-fluid {
+      z-index: 10;
+    }
+
+    .fa-map-marked:before {
+      content: "\24D5";
+    }
+
+    .color {
+      color: #23566B !important;
+    }
+
+    /* POPULAR DESTINATIONS SECTION
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+    .popular-destinations figure {
+      margin-bottom: 30px;
+    }
+
+    .popular-destinations figcaption {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .popular-destinations img {
+      filter: grayscale(100%) blur(3px);
+      transition: transform 0.5s, filter 0.75s;
+    }
+
+    .popular-destinations a:hover img {
+      filter: none;
+    }
+
+
+    /* PAGE FOOTER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+    .page-footer .footer-links {
+      text-align: right;
+    }
+
+    /* MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+    /* MEDIUM SCREENS */
+    @media screen and (max-width: 991px) {
+      .page-header {
+        background: var(--red);
+      }
+    }
+
+    /* SMALL SCREENS */
+    @media screen and (max-width: 767px) {
+      .page-footer .footer-child {
+        text-align: center;
+      }
+    }
+
+    /*SLIDER*/
+
+
+    .slider {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-radius: 1em;
+      width: 1200px;
+      height: 500px;
+      box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.5);
+      -webkit-tap-highlight-color: transparent;
+      margin-bottom: 80PX;
+
+    }
+
+    .img-container {
+      display: flex;
+      transition: transform 300ms ease-in-out;
+    }
+
+    .img-container img {
+      width: 60%;
+    }
+
+    .img-container .noticia64 {
+      margin-right: 150px;
+    }
+
+    .fa-solid {
+      cursor: pointer;
+      color: #23566B;
+      position: absolute;
+      transition: opacity 100ms ease-in-out;
+      z-index: 100;
+    }
+
+    .fa-solid:hover {
+      opacity: 1;
+    }
+
+    .previous {
+      left: 4.5rem;
+    }
+
+    .next {
+      right: 4.5rem;
+    }
+
+    .popular-destinations img {
+      filter: none !important;
+      transition: transform 0.5s, filter 0.75s;
+    }
+  </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto+Flex:opsz@8..144&display=swap');
+
+    /* Resets */
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .img1 {
+      max-width: 920px;
+      max-height: 465px;
+      width: 100%;
+      font-size: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1150px;
+      margin: auto auto;
+      padding: 3rem 1rem;
+    }
+
+    .slider {
+      margin: 0 1rem;
+      position: relative;
+    }
+
+    .slide {
+      display: block;
+      padding: 1rem 1.5rem;
+      border-radius: 4px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+    }
+
+    .slide--img {
+      font-size: 0;
+      overflow: hidden;
+    }
+
+    .slide--img img {
+      min-height: 360px;
+      object-fit: cover;
+      object-position: center right;
+      transition: all 0.3s ease;
+    }
+
+    .slide--img img:hover {
+      transform: scale(1.25);
+    }
+
+    .slide--desc {
+      margin-top: 2.5rem;
+    }
+
+    .slide--desc h2 {
+      font-size: 2.8rem;
+      color: #333;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .slide--desc h3 {
+      font-size: 0.85rem;
+      color: #191919;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .slide--desc p {
+      margin: 2rem 0;
+    }
+
+    .slide--desc-link {
+      text-align: right;
+    }
+
+    .slide--desc-link a {
+      font-size: 1.125rem;
+      padding-left: 6rem;
+      position: relative;
+    }
+
+    .slide--desc-link a::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 5.5rem;
+      height: 1px;
+      background-color: #191919;
+    }
+
+    .slide:not(.slide--current) {
+      display: none;
+    }
+
+    .control span {
+      font-size: 1.5rem;
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      align-items: center;
+      width: 2rem;
+      height: 2rem;
+      background-color: #3f3f3f;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .control--prev {
+      left: 1.5rem;
+      bottom: 1rem;
+      padding: 26px 5px;
+    }
+
+    .control--next {
+      top: 1rem;
+      right: 1.5rem;
+      padding: 26px 5px;
+    }
+
+    /* Queries */
+    @media screen and (min-width: 960px) {
+      .container .slide {
+        display: grid;
+        grid-template-columns: 70% 30%;
+        justify-content: center;
+        transition: 36s ease;
+      }
+
+      .container .slide--img {
+        margin: 1rem;
+        position: relative;
+      }
+
+      .container .slide--desc {
+        padding-right: 2.5rem;
+        padding-left: 2.5rem;
+        position: relative;
+      }
+
+      .container .slide--desc::before {
+        content: '';
+        position: absolute;
+        top: -1.5rem;
+        bottom: 1rem;
+        left: -1rem;
+        width: 50%;
+        background: rgba(153, 153, 153, .2);
+      }
+
+      .container .slide--desc h2 {
+        margin-top: 3.5rem;
+      }
+
+      .container .slide--desc p {
+        margin: 3rem 0 2rem;
+      }
+
+      .container .slide:not(.slide--current) {
+        display: none;
+      }
+
+      .control--prev {
+        left: 2.5rem;
+        bottom: 45%;
+      }
+
+      .control--next {
+        top: 45%;
+        left: calc(70% - 3.5rem);
+      }
+    }
+
+    /* Animation */
+    .fade {
+      transform: translateY(100%);
+      opacity: 0;
+      animation-name: fade;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+    }
+
+    h2.fade {
+      animation-delay: 0.3s;
+    }
+
+    h3.fade {
+      animation-delay: 1s;
+    }
+
+    p.fade {
+      animation-delay: 1.3s;
+      color: black;
+    }
+
+    a.fade {
+      animation-delay: 1.5s;
+    }
+
+    .fadeimg {
+      opacity: 0;
+      animation-name: fadeimg;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeimg {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target="#navbar" data-offset="72" class="position-relative">
+  <header class="fixed-top page-header">
+    <div class="container-fluid container-fluid-max">
+      <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#home">&#32;</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-lg-between" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Noticias">Noticias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#HojaVida">Hoja de Vida</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#process">Ayuda</a>
+            </li>
+          </ul>
+          <div class="text-white">
+            <a href="">
+              <div style="font-size: 105%;" class="d-none d-xl-inline">¡Hola @User!</div>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="d-flex align-items-center position-relative altura cover hero"
+      style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/cappadocia.jpg);">
+      <div class="container-fluid container-fluid-max">
+        <div class="row">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <h1 class="text-white">Nueva sede PcSmart</h1>
+            <p>Ubiacada en Cl.93 #12-14, Chico, Bogota</p>
+            <div class="mt-3">
+              <a class="btn bg-red text-white mr-2" target="_blank"
+                href="https://www.google.com/maps/place/Cl.+93+%2312-14,+Localidad+de+Chapinero,+Bogotá/@4.6755297,-74.0501243,18z/data=!3m1!4b1!4m6!3m5!1s0x8e3f9a8d923b6083:0x6004353d5937de3!8m2!3d4.6755297!4d-74.0492041!16s%2Fg%2F11c2cbqqb7"
+                role="button">Ver Ahora</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="redes" class="redes">
+      <div class="container-fluid container-fluid-max">
+        <div class="row text-center py-5">
+          <div class="col-12 pb-4">
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <span class="fa-stack fa-2x">
+              <i class="fas fa-circle fa-stack-2x text-red"></i>
+              <i class="fas fa-stack-1x text-white"><img
+                  src="https://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-512.png" width="44px"
+                  height="44px" style="margin-top: 8px;filter: invert(100%);" alt=""></i>
+            </span>
+            <h3 class="mt-3 text-red h4">Facebook</h3>
+            <p>&#32;</p>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <span class="fa-stack fa-2x">
+              <i class="fas fa-circle fa-stack-2x text-red"></i>
+              <i class="fas fa-stack-1x text-white"><img src="https://cdn-icons-png.flaticon.com/512/733/733635.png"
+                  width="44px" height="44px" style="margin-top: 10px;filter: invert(100%);" alt=""></i>
+            </span>
+            <h3 class="mt-3 text-red h4">Twitter </h3>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <span class="fa-stack fa-2x">
+              <i class="fas fa-circle fa-stack-2x text-red"></i>
+              <i class="fas fa-stack-1x text-white"><img src="https://cdn-icons-png.flaticon.com/512/666/666162.png"
+                  width="41px" height="41px" style="margin-top: 10px;filter: invert(100%);" alt=""></i>
+            </span>
+            <h3 class="mt-3 text-red h4">Correo</h3>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <span class="fa-stack fa-2x">
+              <i class="fas fa-circle fa-stack-2x text-red"></i>
+              <i class="fas fa-stack-1x text-white"><img
+                  src="https://freeiconshop.com/wp-content/uploads/edd/linkedin-outline.png" width="44px" height="44px"
+                  style="margin-top: 10px;filter: invert(100%);" alt=""></i>
+            </span>
+            <h3 class="mt-3 text-red h4">linkedin</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="Noticias" class="popular-destinations py-5">
+      <div class="container-fluid container-fluid-max">
+        <div class="row">
+          <div class="col-12">
+            <h2 style="font-size: 220%;" class="pb-3 text-red">Noticias</h2>
+          </div>
+
+
+
+          <div class="container">
+            <div class="slider">
+              <div class="slide slide--current">
+                <div class="slide--img fadeimg">
+                  <img class="img1"
+                    src="https://res.cloudinary.com/valery/image/upload/v1633870488/Codepen/fantasy-16x9.webp"
+                    alt="Slide #1">
+                </div>
+                <div class="slide--desc">
+                  <h2 class="fade">Gallery #1</h2>
+                  <h3 class="fade">fantasy landscapes</h3>
+                  <p class="fade">mini description for current gallery images</p>
+                  <div class="slide--desc-link">
+                    <a href="" class="fade">2 gallery</a>
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide--img fadeimg">
+                  <img class="img1"
+                    src="https://s1.hostingkartinok.com/uploads/images/2022/12/8bf1eba3f2059ad8a39d33d3a71dad6d.jpg"
+                    alt="Slide #2">
+                </div>
+                <div class="slide--desc">
+                  <h2 class="fade">Gallery #2</h2>
+                  <h3 class="fade">fantasy landscapes</h3>
+                  <p class="fade">mini description for current gallery images</p>
+                  <div class="slide--desc-link">
+                    <a href="" class="fade">2 gallery</a>
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide--img fadeimg">
+                  <img class="img1"
+                    src="https://s1.hostingkartinok.com/uploads/images/2022/12/39d77c9f7ea79ac4b5838b489efe557c.jpg"
+                    alt="Slide #3">
+                </div>
+                <div class="slide--desc">
+                  <h2 class="fade">Gallery #3</h2>
+                  <h3 class="fade">fantasy landscapes</h3>
+                  <p class="fade">mini description for current gallery images</p>
+                  <div class="slide--desc-link">
+                    <a href="" class="fade">2 gallery</a>
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide--img fadeimg">
+                  <img class="img1"
+                    src="https://www.eltiempo.com/files/article_multimedia/files/crop/uploads/2019/10/15/5da64f9a11291.r_1571197059653.0-296-1080-1014.jpeg"
+                    alt="Slide #3">
+                </div>
+                <div class="slide--desc">
+                  <h2 class="fade">Gallery #4</h2>
+                  <h3 class="fade">fantasy landscapes</h3>
+                  <p class="fade">mini description for current gallery images</p>
+                  <div class="slide--desc-link">
+                    <a href="" class="fade">2 gallery</a>
+                  </div>
+                </div>
+              </div>
+              <div class="slide">
+                <div class="slide--img fadeimg">
+                  <img class="img1"
+                    src="https://www.elcarrocolombiano.com/wp-content/uploads/2021/01/20210124-LOS-10-CARROS-MAS-VENDIDOS-DEL-MUNDO-EN-2020-01.jpg"
+                    alt="Slide #3">
+                </div>
+                <div class="slide--desc">
+                  <h2 class="fade">Gallery #5</h2>
+                  <h3 class="fade">fantasy landscapes</h3>
+                  <p class="fade">mini description for current gallery images</p>
+                  <div class="slide--desc-link">
+                    <a href="" class="fade">2 gallery</a>
+                  </div>
+                </div>
+              </div>
+              <div class="control">
+                <span class="control--prev">&lt;</span>
+                <span class="control--next">&gt;</span>
+              </div>
+            </div>
+          </div>
+
+
+          <!---------------------------------  SLIDER  --------------- 
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+            integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <div class="slider">
+            <i class="fa-solid fa-angles-left fa-2x previous"></i>
+            <div class="img-container">
+              <img src="https://picsum.photos/id/237/800/500.jpg" alt="">
+                <div class="noticia64">aaaaaaaaaaa</div>
+              <img src="https://picsum.photos/id/137/800/500.jpg" alt="">
+                <div class="noticia64">aaaaaaaaaaa</div>
+              <img src="https://picsum.photos/id/127/800/500.jpg" alt="">
+                <div class="noticia64">aaaaaaaaaaa</div>
+              <img src="https://picsum.photos/id/300/800/500.jpg" alt="">
+                <div class="noticia64">aaaaaaaaaaa</div>
+              <img  src="https://media.istockphoto.com/id/1466172271/es/vector/el-biplano-vintage-en-las-nubes.jpg?s=612x612&w=is&k=20&c=wBZSGCTtKqstI6oThcx1kJPAkuIofIOTZ3endkZpmU8="
+                alt="">
+                <div class="text">aaaaaaaaaaa</div>
+            </div>
+            <i class="fa-solid fa-angles-right fa-2x next"></i>
+          </div>-->
+
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center">
+          <a class="btn bg-red text-white" href="" role="button">Ver Mas Noticias ↓</a>
+        </div>
+      </div>
+
+      </div>
+    </section>
+
+    <section id="HojaVida" class="py-5 request-quote bg-lightblue">
+      <div class="container-fluid container-fluid-max">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-auto py-3 text-center">
+            <h2 class="mb-0 text-red">Actualiza tu hoja de vida</h2>
+            <p class="mb-0 h4 text-red font-weight-normal color">Mantente Actualizado</p>
+          </div>
+          <div class="col-12 col-md-auto d-flex justify-content-center align-items-center">
+            <a class="btn bg-red text-white font-weight-bold" href="" role="button">
+              Aqui
+              <i class="ml-1 fas fa-hand-point-left"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="py-5 page-footer">
+    <div class="container-fluid container-fluid-max">
+      <div class="row">
+        <div class="col-12 col-md-6 footer-child copyright">
+          &copy; Copyright <strong id="d"></strong> , Example Corporation
+        </div>
+        <div class="col-12 col-md-6 footer-child footer-links">
+          <a href="" class="mr-3">Privacy Policy</a>
+          <div>
+            <small>Made with <i class="fas fa-heart text-red"></i> by <a href="http://georgemartsoukos.com/"
+                target="_blank">Pear Solutions</a>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    const $body = $("body");
+    const $header = $(".page-header");
+    const $navCollapse = $(".navbar-collapse");
+    const scrollClass = "scroll";
+
+    $(window).on("scroll", () => {
+      if (this.matchMedia("(min-width: 992px)").matches) {
+        const scrollY = $(this).scrollTop();
+        scrollY > 0
+          ? $body.addClass(scrollClass)
+          : $body.removeClass(scrollClass);
+      } else {
+        $body.removeClass(scrollClass);
+      }
+    });
+
+    $(".page-header .nav-link, .navbar-brand").on("click", function (e) {
+      e.preventDefault();
+      const href = $(this).attr("href");
+      $("html, body").animate({
+        scrollTop: $(href).offset().top - 71
+      }, 600);
+    });
+
+    const slides = document.querySelectorAll('.slide');
+    const length = slides.length;
+
+    const prev = document.querySelector('.control--prev');
+    const next = document.querySelector('.control--next');
+
+    var index = 0;
+    //console.log(slides[1]);
+
+    // Previous
+    prev.addEventListener('click', () => {
+      slides.forEach((slide) => {
+        slide.classList.remove('slide--current');
+      });
+      index--;
+      if (index < 0) { index = length - 1; }
+      slides[index].classList.add('slide--current');
+    });
+
+    // Next
+    next.addEventListener('click', () => {
+      slides.forEach((slide) => {
+        slide.classList.remove('slide--current');
+      });
+      index++;
+      if (index > (length - 1)) { index = 0; }
+      slides[index].classList.add('slide--current');
+    });
+  </script>
+</body>
+
+</html>

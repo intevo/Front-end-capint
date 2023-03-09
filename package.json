@@ -1,5 +1,10 @@
 {
   "dependencies": {
     "sweetalert": "^2.1.2"
+  },
+  "scripts" : {
+    "scripts" : "babel src --source-maps-inline --out-dir dist",
+    "scripts:watch" : "babel src --watch --source-map-inline --out-dir dist",
+    "server" : "nodemonno"
   }
 }
